@@ -1,0 +1,47 @@
+{
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+			}
+		},
+		"react": {
+			"createClass": "createReactClass",
+
+			"pragma": "React",
+			"fragment": "Fragment",
+			"version": "detect",
+			"flowVersion": "0.53"
+		}
+	},
+	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"es6": true,
+		"node": true
+	},
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"extends": ["airbnb/base", "plugin:react-hooks/recommended", "airbnb/hooks", "eslint:recommended", "plugin:react/recommended", "prettier"],
+	"plugins": ["react", "react-hooks"],
+	"rules": {
+		"react-hooks/rules-of-hooks": "error",
+		"react-hooks/exhaustive-deps": "warn",
+		"max-len": ["error", 200],
+		"indent": [1, "tab"],
+		"no-tabs": 0,
+		"import/extensions": [
+			0,
+			"always",
+			{
+				"ts": "never",
+				"tsx": "never",
+				"js": "never",
+				"jsx": "never"
+			}
+		]
+	}
+}
