@@ -1,0 +1,31 @@
+.select {
+	display: flex;
+	align-items: center;
+}
+
+.option {
+	display: flex;
+	align-items: center;
+	padding-left: 35px;
+}
+
+.arrowContainer {
+	display: flex;
+	align-items: center;
+}
+
+.arrowUp {
+	cursor: pointer;
+}
+
+.arrowDown {
+	cursor: pointer;
+	transform: rotate(90deg);
+}
+
+.name {
+	font-size: 15px;
+}
+.checkbox {
+	padding: 5px;
+}

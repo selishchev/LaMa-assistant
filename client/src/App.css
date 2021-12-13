@@ -1,0 +1,57 @@
+.App {
+	max-width: 1200px;
+	margin: 0 auto;
+	background: white;
+}
+.alignCenter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.loading {
+	width: 200px;
+	height: 200px;
+	background: url('http://pa1.narvii.com/7491/d8b2fb62d9bc8d6c042da4fd6ad5be92a8d97825r1-200-200_00.gif') no-repeat center;
+	background-size: 200px 200px;
+}
+
+.contentWrapper {
+	z-index: 5px;
+}
+
+.search {
+	display: flex;
+	justify-content: center;
+	position: sticky;
+	padding-top: 50px;
+	padding-bottom: 100px;
+	top: 0;
+	z-index: 10;
+	background: inherit;
+}
+
+.surface {
+	display: flex;
+	justify-content: space-between;
+}
+
+.sitebar {
+	flex: 0 1 48%;
+}
+
+.content {
+	display: flex;
+	justify-content: center;
+	flex: 0 1 48%;
+}
+
+.footer {
+	position: fixed;
+	left: 0px;
+	bottom: 0px;
+	height: 30px;
+	width: 100%;
+	z-index: 10;
+	background: inherit;
+}
