@@ -4,38 +4,40 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Checkbox from '@mui/material/Checkbox';
 import classes from './Select.module.css';
 
-const Select = ({ data, resumeProfessionalRole, putProfessionalRole, key }) => {
-	const [resumeRolesEditByCategody, setResumeRolesEditByCategody] = React.useState(
-		data.roles.map((role) => role.id).filter((roleId) => resumeProfessionalRole.map((role) => role.id).includes(roleId))
-	);
+const Select = ({ data, resumeProfessionalRole, putProfessionalRole }) => {
+	// const [resumeRolesEditByCategody, setResumeRolesEditByCategody] = React.useState(
+	// 	data.roles.map((role) => role.id).filter((roleId) => resumeProfessionalRole.map((role) => role.id).includes(roleId))
+	// );
 	const [isOpen, setIsOpen] = React.useState(false);
-	React.useEffect(() => putProfessionalRole(resumeRolesEditByCategody, data.name), []);
+	// React.useEffect(() => putProfessionalRole(resumeRolesEditByCategody, data.name), []);
 
 	const toggleOpen = () => setIsOpen(!isOpen);
-	const handleChange = (event) => {
-		if (!resumeRolesEditByCategody.includes(event.target.id)) {
-			putProfessionalRole([...resumeRolesEditByCategody, event.target.id], data.name);
-			return setResumeRolesEditByCategody([...resumeRolesEditByCategody, event.target.id]);
-		}
-		putProfessionalRole(
-			resumeRolesEditByCategody.filter((id) => id !== event.target.id),
-			data.name
-		);
-		return setResumeRolesEditByCategody(resumeRolesEditByCategody.filter((id) => id !== event.target.id));
-	};
+	// const handleChange = (event) => {
+	// 	if (!resumeRolesEditByCategody.includes(event.target.id)) {
+	// 		putProfessionalRole([...resumeRolesEditByCategody, event.target.id], data.name);
+	// 		return setResumeRolesEditByCategody([...resumeRolesEditByCategody, event.target.id]);
+	// 	}
+	// 	putProfessionalRole(
+	// 		resumeRolesEditByCategody.filter((id) => id !== event.target.id),
+	// 		data.name
+	// 	);
+	// 	return setResumeRolesEditByCategody(resumeRolesEditByCategody.filter((id) => id !== event.target.id));
+	// };
 
-	const handleChangeCategory = () => {
-		if (resumeRolesEditByCategody.length === data.roles.length) {
-			setResumeRolesEditByCategody([]);
-			putProfessionalRole([], data.name);
-		} else {
-			setResumeRolesEditByCategody(data.roles.map((role) => role.id));
-			putProfessionalRole(
-				data.roles.map((role) => role.id),
-				data.name
-			);
-		}
-	};
+	const selectedRolesCount = React.useMemo(() => data.roles.filter((role) => resumeProfessionalRole.has(role.id)).length, [data.roles, resumeProfessionalRole]);
+
+	// const handleChangeCategory = () => {
+	// 	if (resumeRolesEditByCategody.length === data.roles.length) {
+	// 		putProfessionalRole([], data.name);
+	// 		setResumeRolesEditByCategody([]);
+	// 	} else {
+	// 		putProfessionalRole(
+	// 			data.roles.map((role) => role.id),
+	// 			data.name
+	// 		);
+	// 		setResumeRolesEditByCategody(data.roles.map((role) => role.id));
+	// 	}
+	// };
 
 	return (
 		<div>
@@ -45,16 +47,19 @@ const Select = ({ data, resumeProfessionalRole, putProfessionalRole, key }) => {
 				</span>
 				<Checkbox
 					id={data.id}
-					checked={resumeRolesEditByCategody.length === data.roles.length}
-					indeterminate={resumeRolesEditByCategody.length > 0 && resumeRolesEditByCategody.length !== data.roles.length}
-					onChange={() => handleChangeCategory()}
+					checked={selectedRolesCount === data.roles.length}
+					indeterminate={selectedRolesCount > 0 && selectedRolesCount < data.roles.length}
+					onChange={(event) => {
+						putProfessionalRole(
+							event.target.checked,
+							data.roles.map((role) => role.id)
+						);
+					}}
 					inputProps={{ 'aria-label': 'controlled' }}
 					sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
 					className={classes.checkbox}
 				/>
-				<span key={key} className={classes.name}>
-					{data.name}
-				</span>
+				<span className={classes.name}>{data.name}</span>
 			</div>
 			{isOpen && (
 				<div>
@@ -62,8 +67,10 @@ const Select = ({ data, resumeProfessionalRole, putProfessionalRole, key }) => {
 						<div key={role.id} className={classes.option}>
 							<Checkbox
 								id={role.id}
-								checked={resumeRolesEditByCategody.includes(role.id)}
-								onChange={(e) => handleChange(e)}
+								checked={resumeProfessionalRole.has(role.id)}
+								onChange={(event) => {
+									putProfessionalRole(event.target.checked, [role.id]);
+								}}
 								inputProps={{ 'aria-label': 'controlled' }}
 								sx={{ '& .MuiSvgIcon-root': { fontSize: 20 } }}
 								className={classes.checkbox}
@@ -82,7 +89,6 @@ export default Select;
 
 Select.propTypes = {
 	data: PropTypes.object,
-	resumeProfessionalRole: PropTypes.array,
-	key: PropTypes.string,
+	resumeProfessionalRole: PropTypes.object,
 	putProfessionalRole: PropTypes.func,
 };

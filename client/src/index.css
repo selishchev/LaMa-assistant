@@ -1,13 +1,32 @@
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+	font-size: 15px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	overflow: scroll;
+	overflow: auto;
+	background: lavender;
+
+	/* background: linear-gradient(45deg, #c1cfe281, rgba(125, 186, 226, 0.549));
+	background-size: 10000% 10000%;
+	background-repeat: no-repeat;
+	animation: gradient 3s ease infinite; */
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+#root {
+	/* display: flex;
+	justify-content: center;
+	align-items: center; */
 }
 
 h1,
@@ -22,4 +41,44 @@ h6 {
 
 #root {
 	height: 100%;
+}
+
+highlighttext {
+	color: #1976d2;
+}
+
+input[type='text'],
+input[type='password'],
+input[type='select'],
+input[type='number'],
+*[role='button'],
+.Role_name__3j6hS,
+textarea,
+span:not(.MuiCheckbox-root, .MuiButton-startIcon),
+.MuiOutlinedInput-root,
+#experience,
+.css-319lph-ValueContainer,
+#outlined-textarea,
+label.css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root {
+	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+	font-size: 16px;
+	color: hsl(0, 0%, 20%);
+}
+
+legend.css-1z7n62 {
+	font-size: 1rem;
+}
+
+legend.css-1z7n62 > span {
+	font-size: 0.75em;
+}
+
+#salary-label,
+#experience-label,
+#title-label,
+#outlined-textarea-label {
+	z-index: 0;
+}
+.css-1s2u09g-control {
+	background: lavender !important;
 }

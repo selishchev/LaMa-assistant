@@ -1,14 +1,176 @@
 .container {
-	position: sticky;
-	top: 175px;
+	color: rgba(0, 0, 0, 0.87);
+	/* height: 80%; */
+	max-height: 695px;
+	overflow-y: scroll;
+	direction: rtl;
+	border-radius: 3px 3px 3px 3px;
+}
+
+.container::-webkit-scrollbar {
+	width: 5px;
+	background-color: #c4c5f8;
+	border-radius: 30px 0 0 30px;
+}
+.container::-webkit-scrollbar-thumb {
+	background-color: #9192f3;
+	border-radius: 30px 0 0 30px;
+}
+.container::-webkit-scrollbar-track {
+	/* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2); */
+	background-color: #acaef1;
+	border-radius: 30px 0 0 30px;
+}
+.container > * {
+	direction: ltr;
+}
+
+.resumeTitleContainer {
+	margin: 20px 0 45px 0;
+}
+
+.toggleTitle {
+}
+.title {
+}
+
+.rolesContainer,
+.skillsContainer {
+	/* margin-top: ; */
+	margin-bottom: 35px;
+	position: relative;
+}
+
+.rolesWrapper,
+.skillsWrapper {
+	width: 100%;
+	/* border: 1px solid rgba(0, 0, 0, 0.23); */
+	/* border-radius: 4px; */
+}
+
+.roles,
+.skills {
+	width: 94%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	min-height: 44px;
+}
+
+.rolesIsEmpty,
+.skillsIsEmpty {
+	margin: 5px 0;
+	padding: 5px 2px;
+	font-size: 14px;
+}
+
+/* .deleteRolesBtnInside, 
+.deleteSkillsBtnInside {
+	position: absolute;
+	right: -7px;
+	bottom: 39px;
+} */
+
+.rolesBtn {
+}
+
+.skillsContainer {
+	margin-bottom: 35px;
+}
+
+.skillsWrapper {
+	margin-bottom: 10px;
+}
+
+.searchContainer {
+	margin-bottom: 50px;
+	font-size: 15px;
+	position: relative;
+}
+
+.searchLegend {
+	display: block;
+	font-size: 1rem;
+	position: absolute;
+	top: -10px;
+	left: 9px;
+	background: lavender;
+	user-select: none;
+}
+
+.searchLegend > span {
+	display: inline-block;
+	padding: 0 5px;
+	font-size: 0.75em;
+	color: rgba(0, 0, 0, 0.6);
+	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+	line-height: 1.4375em;
+	letter-spacing: 0.02em;
+	font-weight: 400;
+}
+.expSalContainer {
+	display: flex;
+	/* justify-content: space-between; */
+	margin-bottom: 40px;
+}
+
+.experienceContainer {
+	/* flex: 1 0 40%; */
+	margin-right: 30px;
+}
+
+.experience,
+.salary,
+.title {
+	margin-bottom: 15px;
+}
+
+.toggleExperience {
+}
+
+.salaryContainer {
+	/* flex: 1 0 40%;s */
+	display: flex;
+	justify-content: flex-end;
+}
+
+.salary {
+}
+
+.toggleSalary {
 }
 
 .form {
 	display: flex;
+	min-height: 695px;
 	flex-direction: column;
+	background: lavender;
+	padding: 0 10px;
 }
 
-.options {
+.input {
+	width: 100%;
+	font-size: 1rem;
+	font-family: IBM Plex Sans, sans-serif;
+	font-weight: 400;
+	line-height: 1.4375em;
+	background: rgb(243, 246, 249);
+	border: 1px solid #e5e8ec;
+	border-radius: 10px;
+	padding: 6px 10px;
+	color: #20262d;
+	transition: width 300ms ease;
+}
+
+.input:hover {
+	background: #eaeef3;
+	border-color: #e5e8ec;
+}
+
+.input:focus {
+	outline: none;
+	/* width: 220px; */
+	/* transition: width 200ms ease-out; */
 }
 
 .btnsModalInside {
@@ -21,4 +183,57 @@
 	color: #166abe;
 	font-size: 14px;
 	border-radius: 2px;
+}
+
+.alignItemsCenter {
+	display: flex;
+	align-items: center;
+}
+
+.text {
+	font-size: 14px;
+	line-height: 10px;
+}
+
+.textOpacity {
+	opacity: 0.38;
+}
+
+.checkbox {
+	padding: 0 5px 0 0;
+}
+
+.descriptionContainer {
+	position: relative;
+	margin-bottom: 55px;
+	margin-top: 10px;
+}
+
+.description {
+}
+
+.showDescription {
+	display: inline-block;
+	position: absolute;
+	right: 7px;
+	bottom: 5px;
+}
+
+.submitBtnContainer {
+	position: absolute;
+	width: 540px;
+	bottom: 10px;
+}
+
+.showItem {
+	margin-bottom: 15px;
+}
+
+.inDevelopContainer {
+	margin: 15px 0 20px 0;
+}
+.inDevelopEmployment {
+	margin-bottom: 25px;
+}
+.inDevelopSchedule {
 }

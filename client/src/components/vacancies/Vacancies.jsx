@@ -17,26 +17,29 @@ const getSalary = (from, to) => {
 
 const Vacancies = ({ vacancies }) => (
 	<div className={classes.container}>
-		<h1>Vacancies ({vacancies.length})</h1>
-		{vacancies.map(
-			(vacancy, id) =>
-				!vacancy.errors && (
-					<div key={vacancy.id + id}>
-						<h3>
-							{id + 1} {vacancy.name} <br />
-							rate: {vacancy.rate} <br />
-							{vacancy.area.name} <br />
-							{vacancy.experience.name} <a href={vacancy.alternate_url}>hh</a> <br />
-							{vacancy.salary && getSalary(vacancy.salary.from, vacancy.salary.to)} <br />
-							откликов {vacancy.counters.responses} <br />
-						</h3>
-						<div>{vacancy.snippet.requirement}</div>
-						<div>{vacancy.snippet.responsibility}</div>
-						<div dangerouslySetInnerHTML={{ __html: vacancy.description }} />
-						<hr />
-					</div>
-				)
-		)}
+		{/* <h1>Vacancies ({vacancies.length})</h1> */}
+
+		<div className={classes.wrapper}>
+			{vacancies.map(
+				(vacancy, id) =>
+					!vacancy.errors && (
+						<div key={vacancy.id + id} className={classes.item}>
+							<h3>
+								{id + 1} {vacancy.name} <br />
+								rate: {vacancy.rate} <br />
+								{vacancy.area.name} <br />
+								{vacancy.experience.name} <a href={vacancy.alternate_url}>hh</a> <br />
+								{vacancy.salary && getSalary(vacancy.salary.from, vacancy.salary.to)} <br />
+								откликов {vacancy.counters.responses} <br />
+							</h3>
+
+							{vacancy.snippet.requirement && <div dangerouslySetInnerHTML={{ __html: vacancy.snippet.requirement }} />}
+							{vacancy.snippet.responsibility && <div dangerouslySetInnerHTML={{ __html: vacancy.snippet.responsibility }} />}
+							{vacancy.description && <div dangerouslySetInnerHTML={{ __html: vacancy.description }} />}
+						</div>
+					)
+			)}
+		</div>
 	</div>
 );
 

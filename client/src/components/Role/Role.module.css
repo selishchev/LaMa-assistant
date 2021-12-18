@@ -1,0 +1,33 @@
+.container {
+	border: 1px solid rgba(0, 0, 0, 0.23);
+	display: flex;
+	margin: 3px;
+	padding-left: 10px;
+	border-radius: 4px;
+	/* align-items: center; */
+}
+
+.name {
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	line-height: 10px;
+	/* text-align: center; */
+	padding-right: 10px;
+	border-right: 1px solid rgba(0, 0, 0, 0.23);
+}
+
+.delete {
+	/* display: inline-block; */
+	/* border-left: 1px solid #000; */
+
+	/* width: 20px; */
+	/* height: 20px; */
+	/* padding: 0; */
+}
+
+.deleteIcon:hover {
+	color: #1976d2;
+	padding: 0;
+	/* border-left: 1px solid #000; */
+}
