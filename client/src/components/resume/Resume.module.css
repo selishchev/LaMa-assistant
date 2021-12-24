@@ -1,7 +1,6 @@
 .container {
 	color: rgba(0, 0, 0, 0.87);
-	/* height: 80%; */
-	max-height: 695px;
+	max-height: 660px;
 	overflow-y: scroll;
 	direction: rtl;
 	border-radius: 3px 3px 3px 3px;
@@ -17,7 +16,6 @@
 	border-radius: 30px 0 0 30px;
 }
 .container::-webkit-scrollbar-track {
-	/* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2); */
 	background-color: #acaef1;
 	border-radius: 30px 0 0 30px;
 }
@@ -26,17 +24,11 @@
 }
 
 .resumeTitleContainer {
-	margin: 20px 0 45px 0;
-}
-
-.toggleTitle {
-}
-.title {
+	margin: 20px 0 35px 0;
 }
 
 .rolesContainer,
 .skillsContainer {
-	/* margin-top: ; */
 	margin-bottom: 35px;
 	position: relative;
 }
@@ -44,8 +36,6 @@
 .rolesWrapper,
 .skillsWrapper {
 	width: 100%;
-	/* border: 1px solid rgba(0, 0, 0, 0.23); */
-	/* border-radius: 4px; */
 }
 
 .roles,
@@ -64,16 +54,6 @@
 	font-size: 14px;
 }
 
-/* .deleteRolesBtnInside, 
-.deleteSkillsBtnInside {
-	position: absolute;
-	right: -7px;
-	bottom: 39px;
-} */
-
-.rolesBtn {
-}
-
 .skillsContainer {
 	margin-bottom: 35px;
 }
@@ -83,7 +63,7 @@
 }
 
 .searchContainer {
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 	font-size: 15px;
 	position: relative;
 }
@@ -110,7 +90,6 @@
 }
 .expSalContainer {
 	display: flex;
-	/* justify-content: space-between; */
 	margin-bottom: 40px;
 }
 
@@ -125,24 +104,14 @@
 	margin-bottom: 15px;
 }
 
-.toggleExperience {
-}
-
 .salaryContainer {
-	/* flex: 1 0 40%;s */
 	display: flex;
 	justify-content: flex-end;
 }
 
-.salary {
-}
-
-.toggleSalary {
-}
-
 .form {
 	display: flex;
-	min-height: 695px;
+	min-height: 660px;
 	flex-direction: column;
 	background: lavender;
 	padding: 0 10px;
@@ -169,8 +138,6 @@
 
 .input:focus {
 	outline: none;
-	/* width: 220px; */
-	/* transition: width 200ms ease-out; */
 }
 
 .btnsModalInside {
@@ -205,11 +172,8 @@
 
 .descriptionContainer {
 	position: relative;
-	margin-bottom: 55px;
+	margin-bottom: 10px;
 	margin-top: 10px;
-}
-
-.description {
 }
 
 .showDescription {
@@ -221,8 +185,9 @@
 
 .submitBtnContainer {
 	position: absolute;
-	width: 540px;
-	bottom: 10px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
 }
 
 .showItem {
@@ -234,6 +199,4 @@
 }
 .inDevelopEmployment {
 	margin-bottom: 25px;
-}
-.inDevelopSchedule {
 }

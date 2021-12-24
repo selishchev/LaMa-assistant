@@ -1,32 +1,22 @@
 html,
 body {
 	height: 100%;
+	margin: 0;
+	padding: 0;
 	width: 100%;
 }
 
 body {
-	margin: 0;
 	font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
 	font-size: 15px;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	overflow: auto;
+	overflow: hidden;
 	background: lavender;
-
-	/* background: linear-gradient(45deg, #c1cfe281, rgba(125, 186, 226, 0.549));
-	background-size: 10000% 10000%;
-	background-repeat: no-repeat;
-	animation: gradient 3s ease infinite; */
 }
 
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
-#root {
-	/* display: flex;
-	justify-content: center;
-	align-items: center; */
 }
 
 h1,
@@ -37,14 +27,15 @@ h5,
 h6 {
 	margin: 0;
 	padding: 0;
+	color: rgba(0, 0, 0, 0.8);
+}
+
+h1 {
+	font-size: 22px;
 }
 
 #root {
 	height: 100%;
-}
-
-highlighttext {
-	color: #1976d2;
 }
 
 input[type='text'],
@@ -54,7 +45,7 @@ input[type='number'],
 *[role='button'],
 .Role_name__3j6hS,
 textarea,
-span:not(.MuiCheckbox-root, .MuiButton-startIcon),
+span:not(.MuiCheckbox-root, .MuiButton-startIcon, .secondWord, .welcomeBtn),
 .MuiOutlinedInput-root,
 #experience,
 .css-319lph-ValueContainer,
@@ -79,6 +70,19 @@ legend.css-1z7n62 > span {
 #outlined-textarea-label {
 	z-index: 0;
 }
-.css-1s2u09g-control {
+
+.css-fvqpkw-MuiFormControl-root-MuiTextField-root input {
 	background: lavender !important;
+}
+.css-1s2u09g-control,
+.css-1pahdxg-control {
+	background: inherit !important;
+	border-color: rgba(0, 0, 0, 0.2) !important;
+}
+.css-1okebmr-indicatorSeparator {
+	background-color: rgba(0, 0, 0, 0.2) !important;
+	width: 0 !important;
+}
+.css-1xh8qep-loadingIndicator > * {
+	font-size: 5px !important;
 }

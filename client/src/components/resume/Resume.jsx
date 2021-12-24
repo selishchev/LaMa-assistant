@@ -46,8 +46,6 @@ const style2 = {
 	height: 500,
 	overflow: 'auto',
 	bgcolor: 'background.paper',
-	// border: '2px solid #000',
-	// boxShadow: 24,
 	p: 3,
 	pt: 0,
 	pb: 0,
@@ -75,24 +73,6 @@ const experience = [
 	{ value: 'moreThan6', label: 'Более 6 лет' },
 ];
 
-// const inputStyle = {
-// 	maxWidth: '100%',
-// };
-
-// const getExperienceGap = (months) => {
-// 	const years = months / 12;
-// 	if (years < 1) {
-// 		return 'Нет опыта';
-// 	}
-// 	if (years >= 1 && years < 3) {
-// 		return 'От 1 года до 3 лет';
-// 	}
-// 	if (years >= 3 && years < 6) {
-// 		return '0т 3 до 6 лет';
-// 	}
-// 	return 'Более 6 лет';
-// };
-
 const setEditValues = (resume) => ({
 	area: resume.area,
 	salary: resume.salary.amount,
@@ -105,7 +85,6 @@ const setEditValues = (resume) => ({
 
 const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 	const [initialValues, setInitialValues] = useState(setEditValues(resume));
-
 	const [open, setOpen] = React.useState(false);
 	const handleOpen = () => setOpen(true);
 	const handleClose = () => setOpen(false);
@@ -122,7 +101,6 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 	const selectRoles = React.useCallback((isSelected, roles) => {
 		setSelectedRoles((current) => {
 			const clone = new Set(current);
-
 			// eslint-disable-next-line no-plusplus
 			for (let i = 0; i < roles.length; i++) {
 				if (isSelected) {
@@ -131,7 +109,6 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 					clone.delete(roles[i]);
 				}
 			}
-
 			return clone;
 		});
 	}, []);
@@ -163,7 +140,6 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 	const selectSkill = React.useCallback((isSelected, skills) => {
 		setSelectedSkills((current) => {
 			const clone = new Set(current);
-
 			// eslint-disable-next-line no-plusplus
 			for (let i = 0; i < skills.length; i++) {
 				if (isSelected && skills[i].trim()) {
@@ -206,9 +182,6 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 			<span></span>
 		</components.DropdownIndicator>
 	);
-	// console.log(rolesMap);
-
-	// console.log([...selectedRoles].map((role) => `${role}`));
 
 	const [inputSkill, setInputSkill] = useState('');
 
@@ -217,9 +190,6 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 	};
 
 	const handleSubmitSkill = (event) => {
-		// const { inputValue, value } = this.state;
-		// if (!inputValue) return;
-
 		if (event.key === 'Enter') {
 			event.preventDefault();
 
@@ -240,10 +210,9 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 			return clone.set(section, !isShow);
 		});
 	};
-	console.log(description, description.length);
+
 	return (
 		<div className={classes.container}>
-			{/* <h1>Resume</h1> */}
 			<div className={classes.wrapper}>
 				<form onSubmit={handleSubmit} className={classes.form}>
 					<div className={classes.resumeTitleContainer}>
@@ -292,9 +261,6 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 							inputValue={areaInput.name}
 							defaultValue={{ value: initialValues.area.id, label: initialValues.area.name }}
 						/>
-						<legend className={classes.searchLegend}>
-							<span>Населенный пункт</span>
-						</legend>
 					</div>
 					<div className={classes.expSalContainer}>
 						<div className={classes.experienceContainer}>
@@ -483,22 +449,14 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 						</div>
 					</div>
 
-					{/* <div className={classes.rolesContainer}>
-						<div className={classes.rolesWrapper}>
-							<div className={classes.roles}></div> */}
-
 					{showState.get('skills') && (
 						<div className={classes.skillsContainer}>
 							<div className={classes.skillsWrapper}>
 								{selectedSkills.size > 0 ? (
 									<div className={classes.skills}>
-										{[...selectedSkills].map(
-											(skill) => (
-												<Skill key={skill} name={skill} deleteSkill={handleDeleteSkill} />
-											)
-
-											// <span key={id}>{id}</span>
-										)}
+										{[...selectedSkills].map((skill) => (
+											<Skill key={skill} name={skill} deleteSkill={handleDeleteSkill} />
+										))}
 										{selectedSkills.size > 0 && (
 											<div className={classes.deleteSkillsBtnInside}>
 												<IconButton
@@ -591,18 +549,9 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 											'&::-webkit-scrollbar-thumb': { backgroundColor: '#1976d2' },
 										},
 									},
-									// maxWidth: '100%',
 								}}>
 								{showState.get('description') ? (
-									<TextField
-										id='outlined-textarea'
-										value={description}
-										label='Описание'
-										placeholder='Напишите, пожалуйта'
-										multiline
-										// maxRows={1000}
-										onChange={(e) => handleChangeDescription(e)}
-									/>
+									<TextField id='outlined-textarea' value={description} label='Описание' placeholder='Напишите, пожалуйта' multiline onChange={(e) => handleChangeDescription(e)} />
 								) : (
 									<div>
 										<TextField
@@ -610,7 +559,7 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 											value={description}
 											label='Описание'
 											placeholder='Напишитео себе'
-											maxRows={4}
+											maxRows={5}
 											multiline
 											onChange={(e) => handleChangeDescription(e)}
 										/>
@@ -636,10 +585,11 @@ const Resume = ({ resume, onEditResume, professionalRoles, areas }) => {
 							sx={{
 								'& > .css-1u3bzj6-MuiFormControl-root-MuiTextField-root': { width: '100%' },
 								'.css-sghohy-MuiButtonBase-root-MuiButton-root': { borderRadius: 0, width: '100%', display: 'flex', justifyContent: 'center' },
-								'.css-1d6wzja-MuiButton-startIcon, .css-i4bv87-MuiSvgIcon-root': { fontSize: '25px', m: 0 },
-								// maxWidth: '100%',
+								'.css-1d6wzja-MuiButton-startIcon, .css-i4bv87-MuiSvgIcon-root': { fontSize: '25px', m: 0, mr: '5px' },
 							}}>
-							<Button type='submit' variant='contained' startIcon={<ScreenSearchDesktopIcon />}></Button>
+							<Button type='submit' variant='contained' startIcon={<ScreenSearchDesktopIcon />}>
+								Обновить
+							</Button>
 						</Box>
 					</div>
 				</form>
